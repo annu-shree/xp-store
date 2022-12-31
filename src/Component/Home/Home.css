@@ -1,0 +1,66 @@
+:root {
+    --primary: #094074;
+    --secondary: #3c6997;
+    --bb: #5adbff;
+    --tertiary: #ffdd4a;
+    --quarter: #fe9000;
+}
+
+*{
+    color:black;
+ }
+
+.Home {
+    height: 1700px;
+    background-color: var(--primary);
+}
+
+.intro {
+    padding-top: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 600px;
+    background-color:var(--tertiary);
+    margin: 3rem 5rem;
+}
+
+.intro-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.intro-image {
+
+}
+
+
+.Trending{
+    padding-top: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 600px;
+    background-color:var(--tertiary);
+    margin: 3rem 5rem;
+}
+
+.services{
+    padding-top: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 600px;
+    background-color:var(--tertiary);
+    margin: 3rem 5rem;
+}
+
+.trusted{
+    padding-top: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 600px;
+    background-color:var(--tertiary);
+    margin: 3rem 5rem;
+}

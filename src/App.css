@@ -1,0 +1,157 @@
+:root {
+  --primary : #094074;
+  --secondary: #3c6997;
+  --bb:#5adbff; 
+  --tertiary:  #ffdd4a;
+  --quarter:#fe9000;
+}
+
+.App {
+  text-align: center;
+  align-items: center;
+  background-color: var(--primary);
+}
+
+
+.body {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: color var(primary);;
+}
+
+.Navbar {
+  background-color:var(--bb);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.Navbar-link{
+  margin: 7px;
+}
+
+.store-icon{
+  padding-bottom: 2px;
+ margin-bottom: 2px;
+  height: 30px;
+  font-size: 50px;
+}
+
+.Navbar-link {
+  cursor: pointer;
+  padding: 1rem 1rem;
+  border: 1px  var(--bb)   solid;
+  border-radius: 5px;
+  color: #000;
+  text-decoration: none;
+  align-items: center;
+  font-weight: 3%;
+  font-size: 17px;
+  
+}
+
+.Navbar-link:hover {
+  color : white;
+  border : 1px var(--primary) solid;
+  transition: ease;
+  background-color: var(--primary);
+}
+
+.cart-img {
+  width: 40px;
+  height: 40px;
+  padding-top:2px;
+  padding-right: 7px
+}
+
+.wish-link{
+  
+  
+}
+
+
+.Home{
+  display: flex;
+  flex-direction: column;
+background-color: var(--primary);
+height: 1600px;
+justify-content: space-between;
+} 
+
+.intro{
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--tertiary);
+}
+
+.intro-info{
+ padding: 2px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+
+}
+
+.services{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.serviceheading{
+  font-size: 20px;
+  }
+
+
+.service1{
+  font-size: 30px;
+  padding-top: 50px;
+  font-weight: 45px;
+  background-color:pink;
+}
+
+.service2{
+
+  font-size: 30px;
+  background-color:var(--bb);
+  padding-top: 50px
+}
+
+.service3{
+
+  border-radius: 0%;
+  font-size: 30px;
+  padding-top: 50px;
+  background-color:burlywood;
+}
+
+.service4{
+  
+  font-size: 30px;
+  background-color: floralwhite;
+  padding-top:50px ;
+}
+
+.service5{
+  font-size: 30px;
+  padding-top: 50px;
+  background-color:plum;
+  font-weight: 60px;
+  }
+
+.xpstore{
+  font-size: 90px;
+  font-weight:4%;
+}
+.para{
+  font-size: 15px;
+}
+.welcome{
+ font-size: 30px ;
+ font-weight: 3%;
+}
+
