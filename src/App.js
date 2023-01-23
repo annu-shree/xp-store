@@ -7,32 +7,31 @@ import Navbar from "./Component/Navbar";
 import Login from "./Component/Login";
 import Contact from "./Component/Contact"
 import About from "./Component/About"
-import Product from "./Component/Product"
+import Product from "./Component/Product/Product"
 import SingleProduct from "./Component/SingleProduct"
 import ErrorPage from "./Component/ErrorPage";
 import Logout from "./Component/Logout.jsx"
 import Whishlist from "./Component/Whishlist";
 import DataContextProvider, {useData} from "./Component/DataContext";
-
+//9685298874 Golu yadav
 
 const App = () => {
   return (
-
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter>  
       <Navbar/> 
       <DataContextProvider>
       <Routes>
-        <Route path="Login" element={<Login/>}></Route>
         <Route path="/" element={<Home/>}></Route>
+        <Route path="Login" element={<Login/>}></Route>
         <Route path="Contact" element={<Contact/>}></Route>
         <Route path="About" element={<About/>}></Route>
         <Route path="Product/:id" element={<SingleProduct/>}></Route>
         <Route path="Product" element={<Product/>}></Route>
         <Route path="Cart" element={<Cart/>}></Route>
-        <Route path="*" element={<ErrorPage/>}></Route>
         <Route path="Logout" element={<Logout/>}></Route>
         <Route path="Whishlist" element={<Whishlist/>}></Route>
+        <Route path="*" element={<ErrorPage/>}></Route>
       </Routes>
       </DataContextProvider>
       </BrowserRouter>

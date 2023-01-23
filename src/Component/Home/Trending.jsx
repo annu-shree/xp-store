@@ -1,9 +1,10 @@
 
 import React, { useEffect, useState } from 'react'
 import { getProducts } from '../API'
+import {Paper} from "@mui/material"
 import Carousel from 'react-multi-carousel'
 import "react-multi-carousel/lib/styles.css";
-import { Paper, Slide } from "@mui/material"
+
 
 
 const Trending = (props) => {
@@ -13,72 +14,60 @@ const Trending = (props) => {
       setData(value)
       console.log(data)
     })
-  }, [])
+  },[])
+
 
   const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 5,
-
+      slidesToSlide: 3 // optional, default to 1.
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2
+      items: 2,
+      slidesToSlide: 2 // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1
+      items: 1,
+      slidesToSlide: 1 // optional, default to 1.
     }
   };
 
-  // function chunk(array, pagesize = 5) {
-  //     let page = [];
-  //     for ( let i= 0;  i < array.length; i += pagesize) {
-  //         page.push(array.slice(i,pagesize +  1))
-  //     }
-  //        return page;
-  // }
-
-  //  chunk()
-  //  const sData = chunk(data, 5)
-  console.log(data, "jdnfvjfdb")
   return (
-    <div className='Trending'>
-      <Carousel responsive={responsive} ssr >
-        {/* {
-            sData.map((slider,i)=>{
-             <div style={{ display:"flex",overflow:"none"}}> 
-             {
-              slider.map((item,i)=>{
-             <Grid><Item key={i} item={item}></Item></Grid>
-             }
-              )}
-             </div>
-             })
-           } */}
-        <div>Item 1</div>
-        <div>Item 2</div>
-        <div>Item 3</div>
-        <div>Item 4</div>
-
-        {/* {
-          data.map((item, i) => <Item Key={i} item={item}></Item>) */}
-{/* 
-        } */}
+   
+    <Carousel 
+      className='Trending'
+      swipeable={false}
+      draggable={false}
+      showDots={true}
+     responsive={responsive}
+      ssr={true} // means to render carousel on server-side.
+      infinite={true}
+    // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+      autoPlaySpeed={1000}
+       keyBoardControl={true}
+      customTransition="all .5"
+      transitionDuration={500}
+      containerClass="carousel-container"
+      removeArrowOnDeviceType={["tablet", "mobile"]}
+      //deviceType={this.props.deviceType}
+      dotListClass="custom-dot-list-style"
+      itemClass="carousel-item-padding-40-px"
+      >      
+        {
+          data.map((item, i) => <Item Key={i} item={item}  ></Item>) 
+        }
       </Carousel>
-    </div>
+
   )
 
   function Item(props) {
     return (
-      <Paper>
+      <Paper style={{margin:"10px"}}>
         <h4>{props.item.title}</h4>
-        <img src={props.item.image} alt="" width="250px" height="300px"></img>
+        <img src={props.item.images[0]} alt="" width="150px" height="180px" style={{}}></img>
         <h5>{props.item.price}</h5>
       </Paper>
     )

@@ -9,7 +9,7 @@
 .App {
   text-align: center;
   align-items: center;
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
 }
 
 
@@ -17,7 +17,7 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  background: color var(primary);;
+ /* background: color var(primary); */
 }
 
 .Navbar {
@@ -69,89 +69,5 @@
 .wish-link{
   
   
-}
-
-
-.Home{
-  display: flex;
-  flex-direction: column;
-background-color: var(--primary);
-height: 1600px;
-justify-content: space-between;
-} 
-
-.intro{
-  padding: 3px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: var(--tertiary);
-}
-
-.intro-info{
- padding: 2px;
- display: flex;
- flex-direction: column;
- justify-content: space-between;
-
-}
-
-.services{
-  display: flex;
-  flex-direction: column;
-}
-
-
-.serviceheading{
-  font-size: 20px;
-  }
-
-
-.service1{
-  font-size: 30px;
-  padding-top: 50px;
-  font-weight: 45px;
-  background-color:pink;
-}
-
-.service2{
-
-  font-size: 30px;
-  background-color:var(--bb);
-  padding-top: 50px
-}
-
-.service3{
-
-  border-radius: 0%;
-  font-size: 30px;
-  padding-top: 50px;
-  background-color:burlywood;
-}
-
-.service4{
-  
-  font-size: 30px;
-  background-color: floralwhite;
-  padding-top:50px ;
-}
-
-.service5{
-  font-size: 30px;
-  padding-top: 50px;
-  background-color:plum;
-  font-weight: 60px;
-  }
-
-.xpstore{
-  font-size: 90px;
-  font-weight:4%;
-}
-.para{
-  font-size: 15px;
-}
-.welcome{
- font-size: 30px ;
- font-weight: 3%;
 }
 
