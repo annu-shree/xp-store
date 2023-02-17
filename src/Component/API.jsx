@@ -83,18 +83,18 @@ export async function getspeceficCategory(category) {
     return data
 }
 
-// export async function AddNewProduct() {
-//     const res = await axios.post('https://fakestoreapi.com/products', {
-//         title: 'test product',
-//         price: 13.5,
-//         description: 'lorem ipsum set',
-//         image: 'https://i.pravatar.cc',
-//         category: 'electronic'
-//     })
-//     const data = res.data;
-//     console.log(data)
-//     return data
-// }
+export async function AddNewProduct() {
+    const res = await axios.post('https://fakestoreapi.com/products', {
+        title: 'test product',
+        price: 13.5,
+        description: 'lorem ipsum set',
+        image: 'https://i.pravatar.cc',
+        category: 'electronic'
+    })
+    const data = res.data;
+    console.log(data)
+    return data
+}
 
 // export async function updateProduct(id) {
 //     const res = await axios.put('https://fakestoreapi.com/products/id', {
@@ -108,7 +108,6 @@ export async function getspeceficCategory(category) {
 //     console.log(data)
 //     return data
 // }
-
 
 // export async function deleteProduct(id) {
 //     const res = await axios.delete('https://fakestoreapi.com/products/id')
@@ -219,12 +218,7 @@ export async function FilterUser(key) {
     console.log(data)
     return data
 }
-// export async function SortUser() {
-//     const res = await axios.get('https://fakestoreapi.com/users?sort=desc')
-//     const data = res.data;
-//     console.log(data)
-//     return data
-// }
+
 
 
 export async function deleteUser(id) {
@@ -235,8 +229,6 @@ export async function deleteUser(id) {
 }
 
 ////////////////////userlogin///////////////////////////////////
-
-
 export async function userLogin(username,password){
     const res = await axios.get('https://dummyjson.com/auth/login',{
           username:username,

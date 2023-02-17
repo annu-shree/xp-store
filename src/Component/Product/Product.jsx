@@ -7,7 +7,7 @@ const Product = () => {
   return (
     <div>
       <Searchbar></Searchbar>
-      <div style={{display:"flex",flexDirection:"row"}}>
+      <div style={{display:"flex",flexDirection:"row", gap: "1rem"}}>
      <div> <Filter/></div>
       <div><Display/></div>
       </div>

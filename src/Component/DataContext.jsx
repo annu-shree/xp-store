@@ -1,11 +1,11 @@
 
 import { RoundedCorner } from '@mui/icons-material'
-import React, { useEffect, useMemo, useState } from 'react'
+
+import React, { useEffect, useMemo, useState, createContext, useContext } from 'react'
 import { getAllCategory, getProducts, getspeceficCategory, SearchProducts } from './API'
-import { Navigate, useLocation,useNavigation } from "react-router-dom"
+import { cart } from './CartClass'
 
-
-const DataContext = React.createContext({
+const DataContext = createContext({
   data: [],
   setData: (Value) => { },
   products: [],
@@ -20,15 +20,17 @@ const DataContext = React.createContext({
   setSelectedprice: () => { },
   searchInput: "",
   setSearchInput: () => { },
-  cart: [],
+  ccart: [],
   setCart: () => { },
   whishlist: [],
   setWhishlist: () => { },
   filterByCategory: () => { },
-  searchHandle: () => { },
-  clearHandle:() => { },
+  searchHandle: (query) => { },
+  clearHandle: () => { },
+  cartHandler: () => { },
+  deleteToCart: () => { }
 })
-export const useData = () => React.useContext(DataContext)
+export const useData = () => useContext(DataContext);
 
 const DataContextProvider = (props) => {
   const [data, setData] = useState([]);
@@ -36,10 +38,11 @@ const DataContextProvider = (props) => {
   const [categories, setCategories] = useState([]);
   const [selectedprice, setSelectedprice] = useState('ALL');
   const [searchInput, setSearchInput] = useState("");
-  const [searchAPI, setSearchAPI] = useState([]);
+  const [searchAPI, setSearchAPI] = useState("");
   const [filteredProduct, setFilteredProduct] = useState([])
-  const [cart, setCart] = useState([]);
+  const [ccart, setCart] = useState([]);
   const [whishlist, setWhishlist] = useState([]);
+  const { cartitems } = cart;
 
   useEffect(() => {
     getProducts().then((value) => {
@@ -49,36 +52,57 @@ const DataContextProvider = (props) => {
     getAllCategory().then((value) => {
       setCategories(value)
     })
+  }, []);
 
-   getspeceficCategory().then((value) => {
-      setSearchAPI(value)
-    })
-   }, [])
-  
-   const clearHandle = () => {
-   setProducts(products)
+
+  const deleteToCart = (id) => {
+    const filterditem = ccart.filter((item) => {
+      return item.id !== id
+    });
+    
+    setCart(filterditem);
+    console.log(ccart.length, "delete-----------------");
   }
 
-   const filterByCategory = async (category) => {
+  useEffect(() => {
+    console.log('contxt api ------', cartitems);
+    setCart(cartitems);
+    // cartHandler();
+  }, [cartitems]);
+
+  const clearHandle = () => {
+    setProducts(products)
+  }
+
+  const filterByCategory = async (category) => {
     let result = await getspeceficCategory(category)
     const filterProducts = result.products
     setProducts(filterProducts)
   }
 
-  const searchHandle = (searchvalue) => {
+
+  const searchHandle = async (searchvalue) => {
     setSearchInput(searchvalue)
-    if (searchInput !== "") {
-      const filtereddata = products.filter((item) => {
-      return Object.values(item).join("").toLowerCase().includes(searchInput.toLowerCase())
-      })
+    let result = await SearchProducts(searchvalue)
+    if (searchInput !== "") { // const filtereddata = products.filter((item) => {
+      // return Object.values(item).join("").toLowerCase().includes(searchInput.toLowerCase())
+      // })
+      const filtereddata = result
       setFilteredProduct(filtereddata)
     } else {
       setFilteredProduct(products)
     }
   }
-  console.log(products, "jkhiuiujjh")
+  // console.log(products)
+
+  // const cartHandler = async () => {
+  //   setCart(cartitems)
+  // }
+  // console.log(ccart, "cartcontext");
 
   const contextValue = useMemo(() => ({
+    ccart,
+    deleteToCart,
     data,
     setData,
     products,
@@ -87,10 +111,6 @@ const DataContextProvider = (props) => {
     setCategories,
     searchAPI,
     setSearchAPI,
-    filteredProduct,
-    setFilteredProduct,
-    cart,
-    setCart,
     whishlist,
     setWhishlist,
     selectedprice,
@@ -99,10 +119,12 @@ const DataContextProvider = (props) => {
     setSearchInput,
     filterByCategory,
     searchHandle,
+    filteredProduct,
+    setFilteredProduct,
     clearHandle
-  }), [data, products, categories, filteredProduct, cart, whishlist, selectedprice, searchInput])
+  }), [data, products, categories, searchAPI, filteredProduct, ccart, whishlist, selectedprice, searchInput])
   return (
-    <DataContext.Provider value={contextValue} >
+    <DataContext.Provider value={contextValue}>
       {props.children}
     </DataContext.Provider>
   )

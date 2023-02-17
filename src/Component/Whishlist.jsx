@@ -8,4 +8,4 @@ const Whishlist = () => {
   )
 }
 
-export default Whishlist
+export default Whishlist;

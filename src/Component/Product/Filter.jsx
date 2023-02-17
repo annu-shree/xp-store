@@ -6,11 +6,11 @@ import { useData } from "../DataContext"
 const Filter = (props) => {
   const { filterByCategory, categories, clearHandle } = useData()      
   return (
-    <div style={{ paddingTop: "20px" }}>
+       <div style={{paddingTop:"40px",paddingRight:"50px"}}> 
       <div className="Filter" style={{
         border: "2px solid black",
-        width: "300px",
-        height: "750px",
+        height: "AUTO",
+        width:"300px",
         display: "flex",
         flexDirection: "column",
         alignContent: "flex-start",
@@ -25,25 +25,38 @@ const Filter = (props) => {
           }}>Filters</h1></div>
           <button style={{ backgroundColor: "white", width: "60px", height: "50px", marginTop: "18px", fontSize: "17px", marginLeft: "130px" }} onClick={()=>{clearHandle()}}>Clear</button>
         </div>
-      
-          <h2 style={{
+      <h2 style={{
             color: "black",
            }}>Categories</h2>
-            <form>
-          {
+        <form>
+
+           {
             categories.map((itm) => {
               return (
                 <div style={{ color: "black", marginBottom: "6px" }}>
-                  <input type="radio" id={itm} name='category' value={itm} onClick={() => { filterByCategory(itm) }} style={{ float: "left" }}
+                  <input type="radio" id={itm} name='category' value={itm} onClick={() => {filterByCategory(itm)}} style={{ float: "left" }}
                   />
                   <label style={{ color: "black", marginBottom: "2px" }}>
                     {itm}</label>
                   <br />
                 </div>
+                
               )
             })
           }
         </form>
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
        {/*       
         <div className="categories">
           <h2 style={{ color: "black" }}> Categories</h2>
@@ -89,17 +102,17 @@ const Filter = (props) => {
         </div> */}
 
       </div>
-    </div>
+  </div>
   )
-  // function Item(props) {
-  //   return (
-  //     <Paper style={{ margin: "10px" }}>
-  //       <h4>{props.item.title}</h4>
-  //       <img src={props.item.images[0]} alt="" width="150px" height="180px" style={{}}></img>
-  //       <h5>{props.item.price}</h5>
-  //     </Paper>
-  //   )
-  // }
+  function Item(props) {
+    return (
+      <Paper style={{ margin: "10px" }}>
+        <h4>{props.item.title}</h4>
+        <img src={props.item.images[0]} alt="" width="150px" height="180px" style={{}}></img>
+        <h5>{props.item.price}</h5>
+      </Paper>
+    )
+  }
 }
 
 export default Filter

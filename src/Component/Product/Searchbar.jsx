@@ -1,13 +1,11 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { SearchProducts } from '../API';
 import { useData } from '../DataContext'
 const Searchbar = (props) => {
-const {searchHandle} = useData()
-
+ const { searchHandle } = useData()
   return (
-    <div className="searchbar" style={{ paddingBottom: "20px", paddingTop: "20px" }} >
-
-      <input type="search" className="searchbar" onChange={(e)=>{searchHandle(e.target.value)}}
+    <div className="searchbar" style={{ paddingBottom: "20px", paddingTop: "30px" ,border:"2px solid grey+"}} >
+    <input type="search" className="searchbar" onChange={(e) => searchHandle(e.target.value)}
         style={{
           width: "450px",
           height: "35px",
@@ -19,3 +17,15 @@ const {searchHandle} = useData()
 }
 
 export default Searchbar;
+
+
+// function debounce(func, delay) {
+//   let Timer;
+//   return function() {
+//     const context = this
+//     const args = arguments
+//     clearTimeout(Timer)
+//     Timer= setTimeout(() =>
+//        func.apply(context, args), delay)
+//  }
+// }

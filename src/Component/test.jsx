@@ -7,18 +7,4 @@
   //        return page;
   // }
 
-  //  chunk()
-  //  const sData = chunk(data, 5)
-  
-        //  {
-        //     sData.map((slider,i)=>{
-        //      <div style={{ display:"flex",overflow:"none"}}> 
-        //      {
-        //       slider.map((item,i)=>{
-        //      <Grid><Item key={i} item={item}></Item></Grid>
-        //      }
-        //       )}
-        //      </div>
-        //      })
-        //    } 
-       
+  //  /////

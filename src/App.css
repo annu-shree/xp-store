@@ -9,7 +9,6 @@
 .App {
   text-align: center;
   align-items: center;
-  /* background-color: var(--primary); */
 }
 
 
@@ -17,16 +16,18 @@
   width: 100%;
   height: 100%;
   position: absolute;
- /* background: color var(primary); */
 }
 
 .Navbar {
-  background-color:var(--bb);
+  background-color:beige;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 70px;
-}
+  /* border: 2px solid grey  ; */
+  box-shadow: 0px 0px 8px 10px rgba(0,0,0,0.31)
+  
+ }
 
 .Navbar-link{
   margin: 7px;
@@ -34,7 +35,7 @@
 
 .store-icon{
   padding-bottom: 2px;
- margin-bottom: 2px;
+  margin-bottom: 2px;
   height: 30px;
   font-size: 50px;
 }
@@ -42,32 +43,30 @@
 .Navbar-link {
   cursor: pointer;
   padding: 1rem 1rem;
-  border: 1px  var(--bb)   solid;
+  /* border: 1px  var(--bb)   solid; */
   border-radius: 5px;
   color: #000;
   text-decoration: none;
   align-items: center;
-  font-weight: 3%;
+  font-weight: 4%;
   font-size: 17px;
   
 }
 
 .Navbar-link:hover {
-  color : white;
-  border : 1px var(--primary) solid;
+  color:white;
+  /* border : 1px var(--primary) solid; */
   transition: ease;
-  background-color: var(--primary);
+  background-color: grey;
 }
 
-.cart-img {
+.cart-img { 
   width: 40px;
   height: 40px;
   padding-top:2px;
   padding-right: 7px
 }
+  
+  
 
-.wish-link{
-  
-  
-}
 
