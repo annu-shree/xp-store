@@ -17,7 +17,7 @@ const Intro = () => {
     
     </div>
     <div className='intro-image'></div>
-      <img src=".\images\istockphoto-489803256-1024x1024 (1).jpg" width="2500px" height='327px alt="'></img>
+      <img src=".\images\istockphoto-489803256-1024x1024 (1).jpg" width="2500px" height='350px alt="'></img>
     </div>
   )
 }

@@ -3,7 +3,7 @@ let a = 'updateindentation';
 const cart = {
     1: "updatequantity",
     2: " updatetotal",
-    3: "upadateui",
+    //3: "upadateui",
     4: "backbutton - continueshopping putting navigation",
     5: "add clear all button",
 }
@@ -17,10 +17,12 @@ const Product = {
     },
     search: "updateUI",
 }
+
 const singleproduct = {
     1: "on click function on similar products",
     2: "update ui , button hover , background color"
 }
+
 const whishlist = {
     1: "ui",
     2: "add",
@@ -28,7 +30,7 @@ const whishlist = {
     4: 'localstorage',
 }
 const home = {
-    1: "update trusted companys",
+   // 1: "update trusted companys",
     2: "",
     3: "",
     4: "",

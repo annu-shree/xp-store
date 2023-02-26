@@ -1,154 +1,151 @@
 :root {
-    --primary: #094074;
-    --secondary: #3c6997;
-    --bb: #5adbff;
-    --tertiary: #ffdd4a;
-    --quarter: #fe9000;
+  --primary: #094074;
+  --secondary: #3c6997;
+  --bb: #5adbff;
+  --tertiary: #ffdd4a;
+  --quarter: #fe9000;
 }
 
-*{
-    color:black;
- }
+* {
+  color: black;
+}
 
 
 .intro {
-    padding-top: 4px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 326px;
-    background-color:white;
-    margin: 3rem 5rem;
-    box-shadow: 0px 0px 8px 8px rgba(0,0,0,0.31)
+  padding-top: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 350px;
+  background-color: white;
+  margin: 3rem 5rem;
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.31)
 }
 
 .intro-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.intro-image {
+.intro-image {}
+
+
+.Trending {
+  padding-top: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 340px;
+  margin: 4rem 5rem;
 
 }
 
-
-.Trending{
-  
-    padding-top: 3px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 340px;
-    margin: 4rem 5rem;
-   
+.services {
+  padding-top: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.31);
+  margin: 1rem 5rem;
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.31)
 }
 
-.services{
-    padding-top: 3px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 300px;
-    background-color: rgba(0,0,0,0.31);
-    margin: 3rem 5rem;
-    box-shadow: 0px 0px 8px 8px rgba(0,0,0,0.31)
-}
-
-.trusted{
-    padding-top: 3px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 300px;
-    background-color:beige;
-    margin: 3rem 5rem;
-    box-shadow: 0px 0px 8px 8px rgba(0,0,0,0.31)
+.trusted {
+  padding-top: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 350px;
+  background-color: beige;
+  margin: 3rem 5rem;
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.31)
 }
 
 
-.Home{
-    display: flex;
-    flex-direction: column;
-  background-color:white;
+.Home {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
   height: 1700px;
   justify-content: space-between;
-  } 
-  
-  .intro{
-    padding: 3px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color:white;
-    box-shadow: 0px 0px 8px 8px rgba(0,0,0,0.31)
-  }
-  
-  .intro-info{
-   padding: 2px;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-  
-  }
-  
-  .services{
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 0px 8px 8px rgba(0,0,0,0.31)
-  }
-  
-  
-  .serviceheading{
-    font-size: 20px;
-    
-    
-    }
-  
-  
-  .service1{
-    font-size: 20px;
-   padding-top: 10px;
-    background-color: floralwhite;
-  }
-  
-  .service2{
-    font-size: 20px;
-    background-color: floralwhite;
-    padding-top: 20px
-  }
-  
-  .service3{
-    border-radius: 0%;
-    font-size: 20px;
-    padding-top: 20px;
-    background-color: floralwhite;
-  }
-  
-  .service4{
-     font-size: 20px;
-    background-color: floralwhite;
-    padding-top:20px ;
-  }
-  
-  .service5{
-    font-size: 20px;
-    padding-top: 20px;
-    background-color: floralwhite;
-    
-    font-weight: 60px;
-    }
-  
-  .xpstore{
-    font-size: 90px;
-    font-weight:4%;
-   
-  }
-  .para{
-    font-size: 15px;
-  }
-  .welcome{
-   font-size: 30px ;
-   font-weight: 3%;
-  }
-  
-  
+}
+
+.intro {
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.31)
+}
+
+.intro-info {
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.31)
+}
+
+
+.serviceheading {
+  font-size: 20px;
+
+
+}
+
+
+.service1 {
+  font-size: 20px;
+  padding-top: 10px;
+  background-color: floralwhite;
+}
+
+.service2 {
+  font-size: 20px;
+  background-color: floralwhite;
+  padding-top: 20px
+}
+
+.service3 {
+  border-radius: 0%;
+  font-size: 20px;
+  padding-top: 20px;
+  background-color: floralwhite;
+}
+
+.service4 {
+  font-size: 20px;
+  background-color: floralwhite;
+  padding-top: 20px;
+}
+
+.service5 {
+  font-size: 20px;
+  padding-top: 20px;
+  background-color: floralwhite;
+
+  font-weight: 60px;
+}
+
+.xpstore {
+  font-size: 90px;
+  font-weight: 4%;
+
+}
+
+.para {
+  font-size: 15px;
+}
+
+.welcome {
+  font-size: 30px;
+  font-weight: 3%;
+}

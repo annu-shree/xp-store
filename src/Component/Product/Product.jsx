@@ -7,15 +7,19 @@ const Product = () => {
   return (
     <div>
       <Searchbar></Searchbar>
-      <div style={{display:"flex",flexDirection:"row", gap: "1rem"}}>
-     <div> <Filter/></div>
-      <div><Display/></div>
+      <div style={{
+        display: "flex",
+        flexDirection: "row",
+        gap: "1rem"
+      }}>
+        <div> <Filter /></div>
+        <div><Display /></div>
       </div>
     </div>
   )
 }
 
-export default Product ;
+export default Product;
 
 //no sugar
 //no rice

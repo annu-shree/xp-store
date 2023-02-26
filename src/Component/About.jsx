@@ -3,7 +3,7 @@ import Intro from './Home/Intro'
 import {Button} from "@mui/material"
 const About = () => {
     return(
-    <div className='intro' style={{height:"600px"}}>
+    <div className='intro' style={{height:"630px"}}>
     <div className='intro-info' style={{height:"600px"}}>
         <div className='welcome'>welcome to </div>
         <div className='xpstore'>Xp store</div>

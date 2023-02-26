@@ -4,6 +4,10 @@
 // add to cart ()
 // deleteFromCart()
 // upadatequantity()
+// item Total
+//total
+//itemQuantity
+
 
 // // cllas - cart [] , subtoal = 0 , itemq = 0
 // function add( id , delta= 1){
@@ -45,9 +49,12 @@ class Cart {
     });
     this.cartitems = filterditem;
     console.log(this.cartitems.length, this.cartitems)
+    //update totals
+    this.total = this.total - (filterditem.price * filterditem.quantity)
+    this.itemquantity = this.itemquantity - filterditem.quantity
   }
 
-  updateQuantity(id, delta = 1) {
+  updateQuantityAdd(id, delta = 1) {
     // find the item index
     let i = this.cartitems.findIndex(itm => itm.id === id)
     this.cartitems[i].quantity += delta
@@ -56,6 +63,20 @@ class Cart {
       return acc
     }, 0)
   }
+
+  updateQuantitySub(id, delta = -1) {
+    //find item index
+    let i = this.cartitems.findIndex(itm => itm.id === id)
+    this.cartitems[i].quantity += delta
+    this.total = this.cartitems.reduce((acc, itm) => {
+    acc = acc- (itm.price * itm.quantity)
+    return acc
+    },0)
+  }
+
+
+
+
 }
 
 export let cart = new Cart()

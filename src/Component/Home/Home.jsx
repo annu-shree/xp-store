@@ -12,7 +12,7 @@ import "react-multi-carousel/lib/styles.css";
 const Home = () => { 
   return (<div className='Home'>
    <Intro></Intro>
-   <Trending />
+   <Trending/>
    <Services></Services>
    <Trusted></Trusted>
    </div>

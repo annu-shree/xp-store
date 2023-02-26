@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { SearchProducts } from '../API';
-import { useData } from '../DataContext'
+import { useData } from '../context/DataContext'
 const Searchbar = (props) => {
  const { searchHandle } = useData()
   return (

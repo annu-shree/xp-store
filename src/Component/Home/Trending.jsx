@@ -50,7 +50,7 @@ const Trending = (props) => {
       itemClass="carousel-item-padding-40-px"
       >      
         {
-          data.map((item, i) => <Item Key={i} item={item} style={{}}> </Item>) 
+          data.map((item, i) => <Item Key={i} item={item} > </Item>) 
         }
       </Carousel>
       
@@ -61,7 +61,7 @@ const Trending = (props) => {
       <Paper style={{margin:"14px",border:"2px solid grey"}}>
         <h4>{props.item.title}</h4>
         <img src={props.item.images[0]} alt="" width="150px" height="152px" style={{}}></img>
-        <h5>{props.item.price}</h5>
+        <h5>{props.item.price}</h5> 
       </Paper>
     )
   }
