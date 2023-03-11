@@ -12,7 +12,7 @@ const Product = () => {
         flexDirection: "row",
         gap: "1rem"
       }}>
-        <div> <Filter /></div>
+        <div><Filter /></div>
         <div><Display /></div>
       </div>
     </div>

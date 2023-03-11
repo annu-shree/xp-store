@@ -1,9 +1,8 @@
-
-
 import React from 'react'
 import { NavLink } from "react-router-dom";
-
+import { useAuth0 } from "@auth0/auth0-react";
 const Navbar = () => {
+  const { loginWithRedirect, isAuthenticated,logout } = useAuth0();
   return (
     < div className='Navbar'>
 
@@ -32,41 +31,44 @@ const Navbar = () => {
         </div>
 
         <div>
-          <NavLink className="Navbar-link" to="/About">
+          <NavLink className="Navbar-link" to="/about">
             About
           </NavLink>
         </div>
 
         <div>
-          <NavLink className="Navbar-link" to="/Contact">
+          <NavLink className="Navbar-link" to="/contact">
             Contact
           </NavLink>
         </div>
 
         <div>
-          <NavLink className="Navbar-link" to="/Product">
+          <NavLink className="Navbar-link" to="/product">
             Product
           </NavLink>
         </div>
 
-        <div>
-          <NavLink className="Navbar-link" to="/Logout">
-            Logout
+        {isAuthenticated? <div>
+          <NavLink className="Navbar-link" >
+            <span onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+              Logout
+            </span>
           </NavLink>
-        </div>
-
-
-
+        </div>:<div>
+          <NavLink className="Navbar-link" >
+            <span onClick={() => loginWithRedirect()}>
+              Login
+            </span>
+          </NavLink>
+        </div>}
 
         <div>
-          <NavLink className="wish-link" to="/whishlist" >
-            <i><span class="material-symbols-outlined">
+          <NavLink className="Navbar-link" to="/wishlist" >
+            <i><span className="material-symbols-outlined">
               favorite
             </span></i>
           </NavLink>
         </div>
-
-
 
         <div
           style={{
@@ -74,8 +76,8 @@ const Navbar = () => {
             marginRight: "20px"
           }}>
           <NavLink
-            className="cart-link" to="/Cart">
-            <i><span class="material-symbols-outlined">
+            className="Navbar-link" to="/Cart">
+            <i><span className="material-symbols-outlined">
               shopping_cart
             </span></i>
           </NavLink>

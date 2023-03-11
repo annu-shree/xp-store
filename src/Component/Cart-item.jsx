@@ -11,7 +11,7 @@ const CartItem = ({ item }) => {
         flexDirection: "row",
         justifyContent: "space-around",
         border: "2px solid black",
-        width: "600px",
+        width: "800px",
         height: "70px",
         alignContent: "center",
         alignItems: "center"

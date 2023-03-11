@@ -1,9 +1,9 @@
 
 import React, { useEffect, useState } from 'react'
 import { getProducts } from '../API'
-import {Paper} from "@mui/material"
 import Carousel from 'react-multi-carousel'
 import "react-multi-carousel/lib/styles.css";
+import { useNavigate } from 'react-router-dom';
 
 const Trending = (props) => {
   const [data, setData] = useState([])
@@ -57,12 +57,19 @@ const Trending = (props) => {
   )
 
   function Item(props) {
+    const navigate = useNavigate()
+  function handleSwitch(product) {
+    console.log(product)
+    navigate('/Product/' + product.id, {
+      state: product
+    })}
+    
     return (
-      <Paper style={{margin:"14px",border:"2px solid grey"}}>
+      <div  onClick={()=>handleSwitch(props.item)} style={{margin:"14px",border:"2px solid grey"}}>
         <h4>{props.item.title}</h4>
-        <img src={props.item.images[0]} alt="" width="150px" height="152px" style={{}}></img>
-        <h5>{props.item.price}</h5> 
-      </Paper>
+        <img src={props.item.images[0]} alt="" width="150px" height="152px" ></img>
+        <h5>Rs.{props.item.price}</h5> 
+      </div>
     )
   }
 }

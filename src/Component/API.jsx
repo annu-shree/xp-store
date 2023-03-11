@@ -41,7 +41,7 @@ export async function postProducts() {
 
 
 export async function getSingleProduct(id) {
-    const res = await axios.get('https://dummyjson.com/products/id')
+    const res = await axios.get(`https://dummyjson.com/products/${id}`)
     const data = res.data;
     console.log(data)
     return data

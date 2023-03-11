@@ -23,14 +23,14 @@ const App = () => {
         <ContextWrapper>
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="Login" element={<Login />}></Route>
-            <Route path="Contact" element={<Contact />}></Route>
-            <Route path="About" element={<About />}></Route>
-            <Route path="Product/:id" element={<SingleProduct />}></Route>
-            <Route path="Product" element={<Product />}></Route>
-            <Route path="Cart" element={<Cart />}></Route>
-            <Route path="Logout" element={<Logout />}></Route>
-            <Route path="Wishlist" element={<Wishlist />}></Route>
+            <Route path="login" element={<Login />}></Route>
+            <Route path="contact" element={<Contact />}></Route>
+            <Route path="about" element={<About />}></Route>
+            <Route path="product/:id" element={<SingleProduct/>}></Route>
+            <Route path="product" element={<Product />}></Route>
+            <Route path="cart" element={<Cart />}></Route>
+            <Route path="logout" element={<Logout />}></Route>
+            <Route path="wishlist" element={<Wishlist/>}></Route>
             <Route path="*" element={<ErrorPage />}></Route>
           </Routes>
         </ContextWrapper>

@@ -14,13 +14,10 @@ export const useWishlistData = () => useContext(WishlistContext)
 
 const WishlistContextprovider = (props) => {
     const [wishlist, setWishlist] = useState([])
-    
+
 
     const addToWishlist = (item) => {
-        const wishlistArr = [...wishlist]
-        wishlistArr.push(item)
-     
-        console.log("wishlistArr",wishlistArr);
+        setWishlist((prev) => [...prev, item])
         console.log("Wishlist", wishlist);
     }
 

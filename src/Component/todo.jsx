@@ -1,10 +1,10 @@
-let a = 'updateindentation';
+let a = 'update indentation';
 
 const cart = {
-    1: "updatequantity",
-    2: " updatetotal",
+    //1: "updatequantity",
+    //2: " updatetotal",
     //3: "upadateui",
-    4: "backbutton - continueshopping putting navigation",
+    //4: "backbutton - continueshopping putting navigation",
     5: "add clear all button",
 }
 const Product = {
@@ -20,14 +20,14 @@ const Product = {
 
 const singleproduct = {
     1: "on click function on similar products",
-    2: "update ui , button hover , background color"
+   // 2: "update ui , button hover , background color"
 }
 
 const whishlist = {
-    1: "ui",
-    2: "add",
-    3: "delete",
-    4: 'localstorage',
+    //1: "ui",
+    //2: "add",
+    //3: "delete",
+   // 4: 'localstorage',
 }
 const home = {
    // 1: "update trusted companys",

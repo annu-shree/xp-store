@@ -14,6 +14,7 @@ const CartContext = createContext({
 export const useCartData = () => useContext(CartContext);
 
 const CartContextProvider = (props) => {
+
     const [cart, setCart] = useLocalStorage("cart", []);
 
     const cartTotal = useMemo(() => {
@@ -26,17 +27,17 @@ const CartContextProvider = (props) => {
     }, [cart])
     console.log("itmqqqqqq", totalItem);
 
-    function addToCart(item) {                         
-            let test = cart.some((itm)=>itm.id === item.id)
-            console.log("testing",test)
-            const itm = {
-                ...item,
-                quantity: 1
-            }
-            setCart((prev) => [...prev, itm])
-            console.log("cart...", cart)
+    function addToCart(item) {
+        let test = cart.some((itm) => itm.id === item.id)
+        console.log("testing", test)
+        const itm = {
+            ...item,
+            quantity: 1
+        }
+        setCart((prev) => [...prev, itm])
+        console.log("cart...", cart)
     }
-    
+
     console.log("cartTotal", cartTotal);
 
     const deleteToCart = (id) => {

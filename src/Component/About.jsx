@@ -1,7 +1,10 @@
 import React from 'react'
-import Intro from './Home/Intro'
 import {Button} from "@mui/material"
+import { useNavigate } from 'react-router-dom'
+
 const About = () => {
+  const navigate = useNavigate();
+  const clickHandeler = () => navigate("/Product");
     return(
     <div className='intro' style={{height:"630px"}}>
     <div className='intro-info' style={{height:"600px"}}>
@@ -14,8 +17,8 @@ const About = () => {
         
          <div> 
         
-         <Button variant="contained">ShopNow</Button>
-         </div>
+         <Button onClick={clickHandeler} variant="contained">ShopNow</Button>
+         </div>~
     
     </div>
     <div className='intro-image'></div>

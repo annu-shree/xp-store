@@ -1,22 +1,40 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react';
-import { getspeceficCategory } from './API'
-import { useLocation } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { getspeceficCategory, getSingleProduct } from './API'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useWishlistData } from './context/WishlistContext';
 import { useCartData } from './context/CartContext';
 
 const SingleProduct = (props) => {
+  const { id } = useParams();
   const { state } = useLocation();
   const CurrentProduct = state;
   const { addToCart } = useCartData()
   const { addToWishlist } = useWishlistData()
-  const [imgsrc, setImgsrc] = useState(CurrentProduct.thumbnail)
-  const [similar, setSimilar] = useState([])
+  const [ProductDetail, setProductDetail] = useState(CurrentProduct)
+  const [imgsrc, setImgsrc] = useState(ProductDetail?.thumbnail)
+  const [similarProducts, setSimilarProducts] = useState([])
+  console.log('xxxxxxxxxxxxx----------------', ProductDetail);
+
   useEffect(() => {
-    getspeceficCategory(state.category).then((value) => {
-      setSimilar(value.products)
+  
+    if (!(state === null)) {
+      setProductDetail(state)
+      return
+    }
+
+    getSingleProduct(id).then((res) => {
+      setProductDetail(res)
+      console.log("SingleProductDetail----------------", ProductDetail, "kkkkkkkkk--------", res.id, res);
+    })
+
+
+    getspeceficCategory(ProductDetail?.category).then((res) => {
+      setSimilarProducts(res.products)
+      console.log('hello world----------------', similarProducts, "jjjjjjjj", res.products);
     })
   }, [])
+
+
   return (
     <div style={{ padding: "10px" }}>
       <div className='container' style={{
@@ -32,7 +50,7 @@ const SingleProduct = (props) => {
           }}>
 
 
-          <div className='similar-image' style={{
+          <div className='similarProducts-image' style={{
             display: "flex",
             flexDirection: "column",
             paddingRight: "20px",
@@ -40,7 +58,7 @@ const SingleProduct = (props) => {
             overflowY: 'auto'
           }}>
             {
-              CurrentProduct.images.map((img,i) => <div >
+              ProductDetail?.images.map((img, i) => <div >
                 <img
                   key={i}
                   src={img}
@@ -62,7 +80,7 @@ const SingleProduct = (props) => {
               src={imgsrc}
               width="650px"
               height="541px"
-              alt="" />
+              alt="img" />
           </div>
 
         </div>
@@ -79,7 +97,7 @@ const SingleProduct = (props) => {
               paddingLeft: "10px",
               fontSize: "55px",
               paddingBottom: "10px"
-            }}>{CurrentProduct.brand}</div>
+            }}>{ProductDetail?.brand}</div>
 
           <div className='title'
             style={{
@@ -87,7 +105,7 @@ const SingleProduct = (props) => {
               marginLeft: "12px",
               paddingBottom: "20px",
               color: "grey"
-            }}> {CurrentProduct.title}</div>
+            }}> {ProductDetail?.title}</div>
 
           <div className='rating'
             style={{
@@ -100,7 +118,7 @@ const SingleProduct = (props) => {
               paddingTop: "3px"
             }}><i><span className="material-symbols-outlined">
               star
-            </span></i>  {CurrentProduct.rating} Ratings</div>
+            </span></i>  {ProductDetail?.rating} Ratings</div>
 
           <div
             className='price'
@@ -110,7 +128,7 @@ const SingleProduct = (props) => {
               paddingBottom: "18px",
               fontSize: "30px",
               paddingTop: "10px"
-            }}>Price ${CurrentProduct.price}</div>
+            }}>Price Rs.{ProductDetail?.price}</div>
 
           <div style={{
             border: "1px solid grey",
@@ -124,55 +142,42 @@ const SingleProduct = (props) => {
             style={{
               fontSize: "15px",
               marginBottom: "40px",
-            }}>{CurrentProduct.description}</div>
+            }}>{ProductDetail?.description}</div>
 
           <div className='button'
             style={{
               paddingLeft: "10px",
               marginBottom: "19px",
-              display: "flex"
+              display: "flex",
             }}>
             <div>
-              <button onClick={() => {
-                addToCart(CurrentProduct)
-              }}
-                style={{
-                  marginRight: "10px",
-                  width: "150px",
-                  height: "40px",
-                  backgroundColor: "white",
-                  fontSize: "15px"
-                }}>Add To Cart</button></div>
-
-
+              <button
+                className='CartAddButton'
+                onClick={() => { addToCart(ProductDetail) }}
+              >Add To Cart</button></div>
             <div
               style={{ marginLeft: "20px" }}>
               <button
-                onClick={addToWishlist(CurrentProduct)}
-                style={{
-                  width: "150px",
-                  height: "40px",
-                  backgroundColor: "white",
-                  fontSize: "15px",
-                  paddingLeft: "10px",
-                  marginTop: "0px"
-                }}>
-                <i ><span style={{ paddingTop: "" }} class="material-symbols-outlined">
+                className='wishlistAddButton'
+                onClick={() => addToWishlist(ProductDetail)}>
+                <i className="whishlisticon"><span className="material-symbols-outlined">
                   favorite
-                </span></i></button></div>
+                </span></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className='similar' style={{ display: "flex", flexDirection: "column", paddingTop: "25px" }}>
+      <div className='similarProducts' style={{ display: "flex", flexDirection: "column", paddingTop: "25px" }}>
         <div style={{
-          marginRight: "1500px",
+          marginRight: "1210px",
           fontSize: "30px"
-        }}>Similar</div>
+        }}>Similars Products ---</div>
 
         <div style={{
           border: "1px solid black",
-          width: "1670px",
+          width: "1500px",
           marginBottom: "10px"
         }}></div>
 
@@ -181,20 +186,30 @@ const SingleProduct = (props) => {
           gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr ",
           gap: "20px",
           paddingTop: "10px"
-        }}>{similar.map((item, i) => <Item key={i} item={item}></Item>)}</div></div>
+        }}>{similarProducts.map((item, i) => <Item key={item.id} item={item}></Item>)}</div>
+        </div>
       </div>
     </div>
   )
 }
 
 function Item(props) {
+  const navigate = useNavigate();
+
+  function handleSwitch(product) {
+    console.log(product)
+    navigate('/product/' + product.id, {
+      state: product
+    })
+  }
+
   return (
-    <div style={{ margin: "10px", border: "2px solid grey" }}>
+    <div onClick={() => handleSwitch(props.item)} style={{ margin: "10px", border: "2px solid grey" }}>
       <h4>{props.item.title}</h4>
-      <img src={props.item.images[0]} alt="" width="150px" height="180px" style={{}}></img>
+      <img src={props.item.images[0]} alt="" width="150px" height="180px" ></img>
       <h5>{props.item.price}</h5>
     </div>
   )
-}
 
+}
 export default SingleProduct;
