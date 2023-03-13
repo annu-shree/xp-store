@@ -7,32 +7,31 @@ import { useCartData } from './context/CartContext';
 const SingleProduct = (props) => {
   const { id } = useParams();
   const { state } = useLocation();
-  const CurrentProduct = state;
   const { addToCart } = useCartData()
   const { addToWishlist } = useWishlistData()
-  const [ProductDetail, setProductDetail] = useState(CurrentProduct)
-  const [imgsrc, setImgsrc] = useState(ProductDetail?.thumbnail)
+  const [productDetail, setProductDetail] = useState(state)
+  const [imgsrc, setImgsrc] = useState(productDetail?.thumbnail)
   const [similarProducts, setSimilarProducts] = useState([])
-  console.log('xxxxxxxxxxxxx----------------', ProductDetail);
 
   useEffect(() => {
-  
+    console.log("id changes============ ", state);
     if (!(state === null)) {
       setProductDetail(state)
-      return
+    } else {
+      getSingleProduct(id).then((res) => {
+        setProductDetail(res)
+        console.log("SingleProductDetail----------------", productDetail, "kkkkkkkkk--------", res.id, res);
+      })
     }
+  }, [id])
 
-    getSingleProduct(id).then((res) => {
-      setProductDetail(res)
-      console.log("SingleProductDetail----------------", ProductDetail, "kkkkkkkkk--------", res.id, res);
-    })
-
-
-    getspeceficCategory(ProductDetail?.category).then((res) => {
+  useEffect(() => {
+    getspeceficCategory(productDetail.category).then((res) => {
       setSimilarProducts(res.products)
       console.log('hello world----------------', similarProducts, "jjjjjjjj", res.products);
     })
-  }, [])
+  }, [productDetail])
+  
 
 
   return (
@@ -42,7 +41,8 @@ const SingleProduct = (props) => {
         justifyContent: "space-around",
         padding: "1px"
       }}>
-        <div className='images'
+        <div
+          className='images'
           style={{
             display: "flex",
             justifyContent: "space-evenly",
@@ -58,7 +58,7 @@ const SingleProduct = (props) => {
             overflowY: 'auto'
           }}>
             {
-              ProductDetail?.images.map((img, i) => <div >
+              productDetail?.images.map((img, i) => <div >
                 <img
                   key={i}
                   src={img}
@@ -97,7 +97,7 @@ const SingleProduct = (props) => {
               paddingLeft: "10px",
               fontSize: "55px",
               paddingBottom: "10px"
-            }}>{ProductDetail?.brand}</div>
+            }}>{productDetail?.brand}</div>
 
           <div className='title'
             style={{
@@ -105,7 +105,7 @@ const SingleProduct = (props) => {
               marginLeft: "12px",
               paddingBottom: "20px",
               color: "grey"
-            }}> {ProductDetail?.title}</div>
+            }}> {productDetail?.title}</div>
 
           <div className='rating'
             style={{
@@ -118,7 +118,7 @@ const SingleProduct = (props) => {
               paddingTop: "3px"
             }}><i><span className="material-symbols-outlined">
               star
-            </span></i>  {ProductDetail?.rating} Ratings</div>
+            </span></i>  {productDetail?.rating} Ratings</div>
 
           <div
             className='price'
@@ -128,7 +128,7 @@ const SingleProduct = (props) => {
               paddingBottom: "18px",
               fontSize: "30px",
               paddingTop: "10px"
-            }}>Price Rs.{ProductDetail?.price}</div>
+            }}>Price Rs.{productDetail?.price}</div>
 
           <div style={{
             border: "1px solid grey",
@@ -142,7 +142,7 @@ const SingleProduct = (props) => {
             style={{
               fontSize: "15px",
               marginBottom: "40px",
-            }}>{ProductDetail?.description}</div>
+            }}>{productDetail?.description}</div>
 
           <div className='button'
             style={{
@@ -153,13 +153,13 @@ const SingleProduct = (props) => {
             <div>
               <button
                 className='CartAddButton'
-                onClick={() => { addToCart(ProductDetail) }}
+                onClick={() => { addToCart(productDetail) }}
               >Add To Cart</button></div>
             <div
               style={{ marginLeft: "20px" }}>
               <button
                 className='wishlistAddButton'
-                onClick={() => addToWishlist(ProductDetail)}>
+                onClick={() => addToWishlist(productDetail)}>
                 <i className="whishlisticon"><span className="material-symbols-outlined">
                   favorite
                 </span></i>
@@ -188,17 +188,16 @@ const SingleProduct = (props) => {
           paddingTop: "10px"
         }}>{similarProducts.map((item, i) => <Item key={item.id} item={item}></Item>)}</div>
         </div>
-      </div>
+      </div>  
     </div>
   )
 }
 
 function Item(props) {
   const navigate = useNavigate();
-
-  function handleSwitch(product) {
-    console.log(product)
-    navigate('/product/' + product.id, {
+  const handleSwitch = (product) => {
+    console.log("similARproduct-----", product)
+    navigate(`/product/` + product.id, {
       state: product
     })
   }

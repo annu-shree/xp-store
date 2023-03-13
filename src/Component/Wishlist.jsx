@@ -1,8 +1,10 @@
 import React from 'react'
 import { useWishlistData } from './context/WishlistContext'
+import { useNavigate } from 'react-router-dom'
 
 const Whishlist = () => {
   const { wishlist, deleteToWishlist } = useWishlistData();
+
   return (
     <div>
       <div
@@ -18,8 +20,14 @@ const Whishlist = () => {
   )
 
   function Item(props) {
+    const navigate = useNavigate();
+   const handelClick=(product)=> {
+      navigate(`/product/` + product.id, {
+        state: product
+      })
+    }
     return (
-      <div style={{ margin: "10px", border: "2px solid grey" }}>
+      <div onClick={() => handelClick(props.item)} style={{ margin: "10px", border: "2px solid grey" }}>
         <h4>{props.item.title}</h4>
         <img src={props.item.images[0]} alt="" width="150px" height="180px"></img>
         <h5>Rs.{props.item.price}</h5>
