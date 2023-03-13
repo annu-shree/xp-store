@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+  import React, { useState, useEffect } from 'react'
 import { getspeceficCategory, getSingleProduct } from './API'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useWishlistData } from './context/WishlistContext';
@@ -28,12 +28,12 @@ const SingleProduct = (props) => {
   useEffect(() => {
     getspeceficCategory(productDetail.category).then((res) => {
       setSimilarProducts(res.products)
-      console.log('hello world----------------', similarProducts, "jjjjjjjj", res.products);
+      setImgsrc(res.products.map((item,i)=>item.thumbnail))
+      console.log('hello world----------------', similarProducts, "jjjjjjjj", res.products,);
     })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productDetail])
-  
-
+    
+  // eslint-dsisable-next-line react-hooks/exhaustive-deps
 
   return (
     <div style={{ padding: "10px" }}>

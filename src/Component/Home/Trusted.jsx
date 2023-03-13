@@ -2,13 +2,14 @@ import React from 'react'
 
 const Trusted = () => {
   return (
-    <div className='trusted' style={{
-      flexDirection: "column",
-      alignItems: "center",
-      alignContent: "center",
-      justifyContent: "space-around"
-    }}>
-      <h1> Trusted companies</h1>
+    <div className='trusted'
+      style={{
+        flexDirection: "column",
+        alignItems: "center",
+        alignContent: "center",
+        justifyContent: "space-around"
+      }}>
+      <h2> Trusted companies</h2>
       <div style={{ display: "flex", gap: "70px" }}>
         <div><img src=".\images\apple.png" alt="" /></div>
         <div><img src=".\images\nestle (1).png" alt="" /></div>
