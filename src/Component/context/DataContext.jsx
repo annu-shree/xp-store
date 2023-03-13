@@ -75,6 +75,7 @@ const DataContextProvider = (props) => {
     searchHandle,
     filteredProduct,
     setFilteredProduct,
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }), [ products, categories,  filteredProduct, whishlist, selectedprice, searchInput])
   return (
     <DataContext.Provider value={contextValue}>

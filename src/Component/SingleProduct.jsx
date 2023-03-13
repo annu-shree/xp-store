@@ -20,16 +20,17 @@ const SingleProduct = (props) => {
     } else {
       getSingleProduct(id).then((res) => {
         setProductDetail(res)
-        console.log("SingleProductDetail----------------", productDetail, "kkkkkkkkk--------", res.id, res);
+        //console.log("SingleProductDetail----------------", productDetail, "kkkkkkkkk--------", res.id, res);
       })
     }
-  }, [id])
+  }, [id,state])
 
   useEffect(() => {
     getspeceficCategory(productDetail.category).then((res) => {
       setSimilarProducts(res.products)
       console.log('hello world----------------', similarProducts, "jjjjjjjj", res.products);
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productDetail])
   
 

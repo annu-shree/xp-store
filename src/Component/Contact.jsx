@@ -1,13 +1,14 @@
 import React from 'react'
 
 const Contact = () => {
-  return (
+  return (  
     <div>
       <h1>Contact Page</h1>
       <iframe
+       title={"map"}
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.2547157187955!2d73.9145877147214!3d18.562551787384617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c147b8b3a3bf%3A0x6f7fdcc8e4d6c77e!2sPhoenix%20Marketcity%20-%20Viman%20Nagar!5e0!3m2!1sen!2sin!4v1677832293429!5m2!1sen!2sin"
         width="80%"
-        height="450"
+        height="400"
         style={{ border: "0" }}
         allowFullScreen=""
         loading="lazy"
@@ -22,7 +23,7 @@ const Contact = () => {
           gap: "20px",
           width: "300px",
           alignContent: "center",
-          marginLeft:"650px",
+          marginLeft:"600px",
           padding:"20px"
         }}>
 

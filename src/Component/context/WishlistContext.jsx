@@ -1,6 +1,5 @@
 import { useMemo } from "react"
 import { createContext, useContext, useState } from "react"
-import { useLocalStorage } from "../Hooks/useLocalStorage"
 
 const WishlistContext = createContext({
 
