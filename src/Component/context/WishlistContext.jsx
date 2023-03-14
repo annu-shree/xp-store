@@ -21,6 +21,7 @@ const WishlistContextprovider = (props) => {
     }
 
     const deleteToWishlist = (id) => {
+        
         const filtereditem = wishlist.filter((item) => item.id !== id);
         setWishlist(filtereditem);
         console.log("filtereditem", filtereditem)
