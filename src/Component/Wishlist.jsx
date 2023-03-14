@@ -21,10 +21,10 @@ const Whishlist = () => {
 
   function Item(props) {
     const navigate = useNavigate();
-   const handelClick=(product)=> {
+    function handelClick(product) {
       navigate(`/product/` + product.id, {
         state: product
-      })
+      });
     }
     return (
       <div onClick={() => handelClick(props.item)} style={{ margin: "10px", border: "2px solid grey" }}>

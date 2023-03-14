@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Trusted = () => {
+const Trusted = () => {   
   return (
     <div className='trusted'
       style={{
@@ -19,7 +19,6 @@ const Trusted = () => {
         <div><img src=".\images\myntra.png" alt="" /></div>
       </div>
 
-
       <div className='trusttext' style={{ display: "flex", gap: "40px" }} >
         <div style={{ display: "flex", gap: "40px" }}>
           <div style={{ fontSize: "20px", border: "2px solid grey", borderRadius: "20px", width: "120px" }}>Apple</div>
@@ -35,4 +34,4 @@ const Trusted = () => {
   )
 }
 
-export default Trusted
+export default Trusted;

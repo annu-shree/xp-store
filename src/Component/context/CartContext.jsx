@@ -66,7 +66,7 @@ const CartContextProvider = (props) => {
         addToCart,
         deleteToCart,
         updateToQuantity
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+    
     }), [cart, cartTotal, totalItem])
 
     return (
