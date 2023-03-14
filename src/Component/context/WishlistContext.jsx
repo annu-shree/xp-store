@@ -29,7 +29,7 @@ const WishlistContextprovider = (props) => {
         wishlist,
         addToWishlist,
         deleteToWishlist
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
     }), [wishlist])
 
     return (
