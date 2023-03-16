@@ -1,8 +1,9 @@
-  import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { getspeceficCategory, getSingleProduct } from './API'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useWishlistData } from './context/WishlistContext';
 import { useCartData } from './context/CartContext';
+import { display } from '@mui/system';
 
 const SingleProduct = (props) => {
   const { id } = useParams();
@@ -14,34 +15,36 @@ const SingleProduct = (props) => {
   const [similarProducts, setSimilarProducts] = useState([])
 
   useEffect(() => {
-    console.log("id changes============ ", state);
+    console.log("id changes--", state);
     if (!(state === null)) {
       setProductDetail(state)
     } else {
       getSingleProduct(id).then((res) => {
         setProductDetail(res)
-        //console.log("SingleProductDetail----------------", productDetail, "kkkkkkkkk--------", res.id, res);
       })
     }
-  }, [id,state])
+  }, [id, state])
 
   useEffect(() => {
     getspeceficCategory(productDetail.category).then((res) => {
       setSimilarProducts(res.products)
-      setImgsrc(res.products.map((item,i)=>item.thumbnail))
+      console.log("imgarr----------", productDetail);
+      setImgsrc(productDetail.thumbnail)
       console.log('hello world----------------', similarProducts, "jjjjjjjj", res.products,);
     })
   }, [productDetail])
-    
-  // eslint-dsisable-next-line react-hooks/exhaustive-deps
+
 
   return (
-    <div style={{ padding: "10px" }}>
-      <div className='container' style={{
-        display: "flex",
-        justifyContent: "space-around",
-        padding: "1px"
-      }}>
+    <div
+      className='singleproductpage'
+    >
+      <div className='container'
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          padding: "1px"
+        }}>
         <div
           className='images'
           style={{
@@ -55,8 +58,9 @@ const SingleProduct = (props) => {
             display: "flex",
             flexDirection: "column",
             paddingRight: "20px",
-            maxHeight: "541px",
-            overflowY: 'auto'
+            maxHeight: "28rem",
+            overflowY: 'auto',
+            marginLeft:"1rem"
           }}>
             {
               productDetail?.images.map((img, i) => <div >
@@ -68,8 +72,6 @@ const SingleProduct = (props) => {
                   height={100}
                   alt='img'
                   style={{
-                    border: "1px solid GREY",
-                    boxshadow: " 0px 0px 8px 8px rgba(0,0,0,0.31)",
                     marginBottom: "8px"
                   }} />
               </div>)
@@ -90,22 +92,23 @@ const SingleProduct = (props) => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-start",
-            alignItems: "flex-start"
+            alignItems: "flex-start",
+            gap:'2rem'
           }}>
 
           <div className='brand'
             style={{
               paddingLeft: "10px",
               fontSize: "55px",
-              paddingBottom: "10px"
+              color: "white"
             }}>{productDetail?.brand}</div>
 
           <div className='title'
             style={{
               fontSize: "35px",
               marginLeft: "12px",
-              paddingBottom: "20px",
-              color: "grey"
+              // paddingBottom: "20px",
+              color: "white"
             }}> {productDetail?.title}</div>
 
           <div className='rating'
@@ -114,9 +117,7 @@ const SingleProduct = (props) => {
               border: "2px solid black",
               width: "180px",
               fontSize: "20px",
-              paddingBottom: "8px",
-              marginBottom: "10px",
-              paddingTop: "3px"
+              // paddingTop: "3px"
             }}><i><span className="material-symbols-outlined">
               star
             </span></i>  {productDetail?.rating} Ratings</div>
@@ -125,37 +126,37 @@ const SingleProduct = (props) => {
             className='price'
             style={{
               paddingLeft: "10px",
-              color: "orange",
-              paddingBottom: "18px",
+              color: "redorange",
               fontSize: "30px",
-              paddingTop: "10px"
             }}>Price Rs.{productDetail?.price}</div>
 
           <div style={{
             border: "1px solid grey",
-            width: "700px",
+            width: "45.9rem",
             marginLeft: "10px",
-            marginBottom: "10px"
-          }}></div>
+          }}>
+          </div>
 
           <div
             className='description'
             style={{
-              fontSize: "15px",
-              marginBottom: "40px",
+              color: "black",
+              fontSize: "1.1rem",
+              marginLeft: "0.8rem",
             }}>{productDetail?.description}</div>
 
           <div className='button'
             style={{
               paddingLeft: "10px",
-              marginBottom: "19px",
+              marginTop: "2rem",
               display: "flex",
             }}>
             <div>
               <button
                 className='CartAddButton'
                 onClick={() => { addToCart(productDetail) }}
-              >Add To Cart</button></div>
+              >Add To Cart</button>
+            </div>
             <div
               style={{ marginLeft: "20px" }}>
               <button
@@ -172,24 +173,31 @@ const SingleProduct = (props) => {
 
       <div className='similarProducts' style={{ display: "flex", flexDirection: "column", paddingTop: "25px" }}>
         <div style={{
-          marginRight: "1210px",
-          fontSize: "30px"
-        }}>Similars Products ---</div>
+          paddingTop: "1.5rem",
+          fontFamily: "sans-serif",
+          color: "white",
+          fontSize: "2rem",
+          marginRight: "80rem",
+          paddingBottom:"0.8rem"
+        }}>Similar Products</div>
 
         <div style={{
-          border: "1px solid black",
+          border: "1px solid grey",
           width: "1500px",
-          marginBottom: "10px"
-        }}></div>
+          marginBottom: "10px",
+          marginLeft: "1rem",
+        }}>
+        </div>
 
         <div><div className='display' style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr ",
           gap: "20px",
-          paddingTop: "10px"
+          paddingTop: "0.7rem",
+          height: "27rem"
         }}>{similarProducts.map((item, i) => <Item key={item.id} item={item}></Item>)}</div>
         </div>
-      </div>  
+      </div>
     </div>
   )
 }
@@ -204,12 +212,22 @@ function Item(props) {
   }
 
   return (
-    <div onClick={() => handleSwitch(props.item)} style={{ margin: "10px", border: "2px solid grey" }}>
-      <h4>{props.item.title}</h4>
-      <img src={props.item.images[0]} alt="" width="150px" height="180px" ></img>
-      <h5>{props.item.price}</h5>
+    <div
+      onClick={() => handleSwitch(props.item)}
+      style={{
+        margin: "10px",
+        backgroundColor: "white",
+        height: "23.3rem",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "0.2rem",
+      
+      }}>
+      <img src={props.item.images[0]} alt="" width="270px" height="290px" ></img>
+      <span>{props.item.title}</span>
+      <span>Rs.{props.item.price}</span>
     </div>
   )
-
 }
 export default SingleProduct;

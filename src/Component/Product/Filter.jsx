@@ -4,15 +4,7 @@ const Filter = (props) => {
   const { filterByCategory, categories } = useData();
   return (
     <div style={{ paddingTop: "40px", paddingRight: "50px" }}>
-      <div className="Filter" style={{
-        border: "2px solid black",
-        height: "AUTO",
-        width: "300px",
-        display: "flex",
-        flexDirection: "column",
-        alignContent: "flex-start",
-        alignItems: "flex-start",
-      }}>
+      <div className="Filter" >
         <div style={{
           display: "flex",
           flexDirection: "row",
@@ -20,24 +12,32 @@ const Filter = (props) => {
           <div>
             <h1 style={{
               color: "black",
+              marginLeft:"1.5rem",
             }}>Filters</h1>
           </div>
 
-          <button
+          
+            <i
             style={{
               backgroundColor: "white",
               width: "60px",
               height: "50px",
-              marginTop: "18px",
+              marginTop: "28px",
               fontSize: "17px",
-              marginLeft: "130px"
-            }} >Clear</button>
+              marginLeft: "100px"
+            }} >
+              <span class="material-symbols-outlined">
+                close
+              </span>
+            </i>
         </div>
+       
         <h2 style={{
           color: "black",
+          marginLeft:"1.5rem",
         }}>Categories</h2>
-        <form>
 
+        <form style={{marginLeft:"1.5rem"}}>
           {
             categories.map((itm,i) => {
               return (
@@ -54,7 +54,9 @@ const Filter = (props) => {
                   />
                   <label style={{
                     color: "black",
-                    marginBottom: "2px"
+                    marginBottom: "2px",
+                    float:"left",
+                    marginLeft:"0.5rem"
                   }}>
                     {itm}</label>
                   <br />

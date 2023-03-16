@@ -1,0 +1,21 @@
+.product{
+    width:100%;
+    background: linear-gradient(#f5b5b5, #9198e5);
+}
+
+.singleItem{
+    width: 18rem;
+    height: 24.8rem;
+    background-color: white;
+    padding-top:0.2rem ;
+    padding-bottom:0.5rem ;
+  }
+  .Filter{
+    height: auto;
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+    background-color: white;
+  }

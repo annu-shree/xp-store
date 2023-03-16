@@ -5,7 +5,7 @@ import Home from "./Component/Home/Home"
 import Cart from "./Component/Cart"
 import Navbar from "./Component/Navbar";
 import Contact from "./Component/Contact"
-import About from "./Component/About"
+import About from "./Component/About/About"
 import Product from "./Component/Product/Product"
 import SingleProduct from "./Component/SingleProduct"
 import ErrorPage from "./Component/ErrorPage";
@@ -20,7 +20,6 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <ContextWrapper>
-
           <Routes>
             <Route path="/" element={<Home />}></Route>
              <Route path="contact" element={<Contact />}></Route>

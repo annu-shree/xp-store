@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 import { createContext, useContext, useState } from "react"
-
+import { useLocalStorage } from "../Hooks/useLocalStorage"
 const WishlistContext = createContext({
 
     wishlist: [],
@@ -12,7 +12,7 @@ const WishlistContext = createContext({
 export const useWishlistData = () => useContext(WishlistContext)
 
 const WishlistContextprovider = (props) => {
-    const [wishlist, setWishlist] = useState([])
+    const [wishlist, setWishlist] = useLocalStorage("wishlist",[])
 
 
     const addToWishlist = (item) => {

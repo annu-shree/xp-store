@@ -73,10 +73,6 @@ class Cart {
     return acc
     },0)
   }
-
-
-
-
 }
 
 export let cart = new Cart()

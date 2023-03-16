@@ -2,15 +2,17 @@ import React from 'react'
 import Searchbar from './Searchbar'
 import Filter from './Filter'
 import Display from './Display'
-
+import "./product.css"
 const Product = () => {
   return (
-    <div>
+    <div className='product'>
       <Searchbar></Searchbar>
       <div style={{
         display: "flex",
         flexDirection: "row",
-        gap: "1rem"
+        gap: "1rem",
+        alignContent:"center",
+        justifyContent:"center",
       }}>
         <div><Filter /></div>
         <div><Display /></div>
