@@ -63,8 +63,6 @@ const Whishlist = () => {
           <span>
             {props.item.title}
           </span>
-
-
           <div>
             <span>Rs.{props.item.price}</span>
           </div>
