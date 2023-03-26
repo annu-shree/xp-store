@@ -23,7 +23,7 @@ const CartItem = ({ item }) => {
           height: "6rem",
           alignContent: "center",
           alignItems: "center",
-          backgroundColor:"white"
+          backgroundColor:"rgba(0,0,0,0.1)"
         }}>
         <div>
           <img onClick={() => handelClick(item)} src={item.thumbnail} alt="" width="100px" height="60px" />

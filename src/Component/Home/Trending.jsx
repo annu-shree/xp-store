@@ -63,7 +63,14 @@ const Trending = (props) => {
     return (
       <div
         onClick={() => handleSwitch(props.item)}
-        style={{ margin: "0.8rem", backgroundColor: "white", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "1.3rem" }}>
+        style={{
+          margin: "0.8rem",
+          backgroundColor: "white",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center", 
+          paddingTop: "1.3rem"
+        }}>
         <img src={props.item.images[0]} alt="" width="200px" height="270px" ></img>
         <span>{props.item.title}</span>
         <span>Rs.{props.item.price}</span>
